@@ -1,0 +1,13 @@
+{
+	"folders": [
+		{
+			"path": "."
+		},
+		{
+			"path": "../NoireEtBlanc"
+		}
+	],
+	"settings": {
+		"liveServer.settings.multiRootWorkspaceName": "weerwi"
+	}
+}

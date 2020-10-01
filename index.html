@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>sunuweer</title>
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="/css/calendar.css">
+<script src="js/muslimCalendar.js" defer></script>
+</head>
+
+<body>
+  <header id="header">
+    <h1>sunu weer</h1>
+  </header>
+  <nav class="navbar">
+    <div class="topnav" id="myTopnav">
+    <a href="index.html" class="active">Calendrier</a>
+    <a href="#news">Rechercher une Date</a>
+    <a href="sinscrire.html">Soyez informe</a>
+    <a href="javascript:void(0);" class="icon" onclick="hamburger()">
+      <i class="fa fa-bars"></i>
+    </a>
+  </div>
+  </nav>
+<div id='particles-js' class="content" >
+  <main>
+    <h1>sunuweer, Votre calendrier musulman </h1>
+    <div>
+      <p>
+        <!--  The Date will be displayed here  -->
+      </p>
+       <div class="calendar">
+        <div class="month">
+          <ul>
+            <li class="prev">&#10094;</li>
+            <li class="next">&#10095;</li>
+            <li><!-- <script async="false">document.write(moisHeg[monthNum])</script> ><br><span style="font-size:18px">
+                 <script async="false">document.write(hegYear) </script></span> --></li>
+          </ul>
+        </div>
+  
+        <ul class="weekdays">
+          <li>Lun</li>
+          <li>Mar</li>
+          <li>Mer</li>
+          <li>Jeu</li>
+          <li>Ven</li>
+          <li>Sam</li>
+          <li>Dim</li>
+        </ul>
+        
+        <ul class="days">
+          
+        </ul>
+       </div>
+       <article>
+         <h1>Calendrier musulman de la C.M.S</h1>
+         <p>Ce calendrier affiche la date courante du mois lunaire de l'année hégiriène en se base sur la
+           la déclaration de la commission lunaire de la <strong>coordination des musulmans du Sénégal (C.M.S)</strong>. 
+           Il est mis a jour à la fin de chaque mois après la déclaration de la commission. 
+         </p>
+         <p>Pour plus d'information sur la C.M.S visitez son site web. </p>
+       </article>
+    </div>
+  </main>
+</div>
+<footer>
+  <h1>sunu weer</h1>
+</footer>
+<script>
+            
+  onload = function (){
+    let date= new Date();
+    let para=document.querySelector("main p");
+    
+  para.innerHTML=`<strong>${jours[date.getDay()]}</strong> le <strong>${date.getDate()} ${moisGreg[date.getMonth()]} ${date.getFullYear()}</strong>`;
+
+  }
+  function hamburger() {
+    var x = document.getElementById("myTopnav");
+    if (x.className === "topnav") {
+      x.className += " responsive";
+    } else {
+      x.className = "topnav";
+    }
+  }
+  </script>
+  <!--http://api.aladhan.com/v1/gToH?date=31-08-2020-->
+  <script src="js/script.js" type="text/javascript"></script>
+      
+  <script src="/js/particles.min.js"></script>
+  <script src="/js/app.js"></script>
+</body>
+
+</html>

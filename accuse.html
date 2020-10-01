@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>sunuweer</title>
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+  form{
+    font-size: large;
+    padding: 5rem;
+  }
+  .tooltip{
+    display: none;
+    color: rgb(175, 32, 7);
+  }
+  form label {
+    display: inline-block;
+    padding-bottom: 2rem;
+  }
+  form input[type=submit]{
+    width: 180px;
+    display: block;
+    padding: 15px 22px;
+    font-size: large;
+    background: transparent;
+    cursor: pointer;
+   box-shadow: 5px 10px rgba(0, 0, 0, 0.19);
+  }
+  form input[type=submit]:hover{
+    font-weight: bold;
+    transform: translateY(-5px);
+  }
+</style>
+</head>
+
+<body>
+  <nav class="navbar fixed">
+    <div class="topnav" id="myTopnav">
+    <a href="index.html" >Calendrier</a>
+    <a href="#news">Rechercher une Date</a>
+    <a href="sinscrire.html" class="active">Soyez Informe</a>
+    <a href="javascript:void(0);" class="icon" onclick="hamburger()">
+      <i class="fa fa-bars"></i>
+    </a>
+  </div>
+  </nav>
+<div id='particles-js' class="content" >
+  <main>
+    <h1>Inscription pour recevoir l'information par SMS </h1>
+    <div>
+     <form action="accuse.html">
+       <label for="name">Votre Nom:</label><br>
+       <input type="text" name="name" id="name"><br>
+       <span class="tooltip">Un nom ne peut faire moins de deux caracteres</span><br>
+       <label for="tel">Votre numero de Telephone:</label><br>
+       <input type="tel" name="tel" id="tel" required placeholder="Ex:773455679" title="Saisir un numero telephone sans espace" minlength="9" maxlength="9" pattern="^7[0,6,7,8]{1}[0-9]{3}[0-9]{2}[0-9]{2}"> <br>
+       <span class="tooltip">Le format du numero saisi est invalide</span><br>
+
+       <label for="choises">Je veux recevoir un SMS a chaque: </label> <br>
+       <input type="checkbox" id="newMoon" name="newMoon" value="nouvelleLune">
+       <label for="newMoon"> Debut d'un nouveau mois lunaire </label><br>
+       <input type="checkbox" id="WhiteDays" name="WhiteDays" value="joursBlancs">
+       <label for="WhiteDays">Veille des jours blancs </label><br>
+       <input type="checkbox" id="celebration" name="celebration" value="celebration">
+       <label for="celebration">Veille des jours de celebration (Aid, Arafat, Achoura)</label><br> 
+       <span class="tooltip">Vous devez cochez une case au moins</span><br>
+
+       <input type="submit" name="submitBtn" id="submitBtn" value="M'INSCRIRE"> <br>
+     </form>
+  
+    </div>
+  </main>
+</div>
+<footer>
+  <h1>sunu weer</h1>
+</footer>
+<script>
+            
+
+  function hamburger() {
+    var x = document.getElementById("myTopnav");
+    if (x.className === "topnav") {
+      x.className += " responsive";
+    } else {
+      x.className = "topnav";
+    }
+  }
+/*   // Checking the subscriber form
+  function checkForm(){
+    //checking name
+    const name=document.getElementById("name");
+    if(name.value.length<=2){
+       name.nextSibling.style.dispay="inline-block"; return false;
+    }
+          
+    //checking mobile phone number
+    const tel= document.getElementById("tel");
+      if(! /^7[0,6,7,8]{1}[0-9]{3}[0-9]{2}[0-9]{2}/.test(tel.value)){
+        tel.nextSibling.style.dispay='inline-block' ; return false;
+      }
+   // checking at least one checkbox is choosed   
+
+    const checkboxes = document.querySelectorAll('input[type=checkbox]');
+    const checkboxeLength = checkboxes.length;
+      for(let i = 0; i< checkboxeLength;i++){
+        if(checkboxes[i].checked)
+                return true;  // return true because all above rules are satisfied
+      }
+      document.querySelector(".tooltip")[2].style.dispay="inline-block";
+      return false;
+  }
+
+ */
+  </script>
+  <!--http://api.aladhan.com/v1/gToH?date=31-08-2020-->
+  <script src="js/script.js" type="text/javascript"></script>
+      
+  <script src="/js/particles.min.js"></script>
+  <script src="/js/app.js"></script>
+</body>
+
+</html>
