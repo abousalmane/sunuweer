@@ -13,6 +13,6 @@ exports.handler = function(event, context, callback){
     let tel=payload.data.tel;
     callback(null,{
         statusCode:200,
-        body:JSON.stringify(name +" voici votre numero "+tel)
+        body:JSON.stringify({"name":name, "tel":tel})
     });
 }

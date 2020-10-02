@@ -1,0 +1,2 @@
+/ndiaye http://senecrypt.herokuapp.com/
+/login /.netlify/functions/getword/getword.js 200
