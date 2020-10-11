@@ -5,3 +5,4 @@ tempIndex.html
 
 # Local Netlify folder
 .netlify
+node_modules
