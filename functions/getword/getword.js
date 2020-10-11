@@ -1,8 +1,7 @@
-// Docs on event and context https://www.netlify.com/docs/functions/#the-handler-method
+
+      /* const qs = require("querystring"); */
 exports.handler = async (event, context,callback) => {
   try {
-    /* const subject = event.queryStringParameters.name || 'World'; */
-    const qs = require("querystring");
     const pwd = event.queryStringParameters.pwd;
     console.log("Mot de Passe "+pwd);
     callback(null, {
@@ -13,7 +12,6 @@ exports.handler = async (event, context,callback) => {
       body: JSON.stringify({"message": "Hello"}),
       // // more keys you can return:
       // headers: { "headerName": "headerValue", ... },
-      // isBase64Encoded: true,
     });
   } catch (err) {
     return { statusCode: 500, body: err.toString() }
