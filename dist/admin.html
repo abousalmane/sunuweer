@@ -18,18 +18,20 @@
   }
   form label {
     display: inline-block;
+    font-size: larger;
     padding-bottom: 2rem;
   }
-  form input[type=submit]{
-    width: 180px;
+  form input[type=button]{
+    width: 190px;
     display: block;
+    text-align: center;
     padding: 15px 22px;
     font-size: large;
     background: transparent;
     cursor: pointer;
    box-shadow: 5px 10px rgba(0, 0, 0, 0.19);
   }
-  form input[type=submit]:hover{
+  form input[type=button]:hover{
     font-weight: bold;
     transform: translateY(-5px);
   }
@@ -52,11 +54,11 @@
     <h1>Saisir le mot de pass Administrateur pour se connecter </h1>
     <div>
      <form name="adminPass" id="adminPass">
-       <label for="pwd">Entrer le mot de Passe Adminstrateur:</label><br>
-       <input type="text" name="pwd" id="pass" minlength="5" required><br>
+       <label for="pwd">Veillez saisir le mot de Passe Adminstrateur pour démarrer un nouveau calendrier et envoyer les SMS aux inscrits </label><br>
+       <input type="password" name="pwd" id="pass" minlength="5" required><br>
        <span class="tooltip">le mot ne peut faire moins de deux caracteres</span><br>
        
-       <input type="button" name="authBtn" id="authBtn" value="SE CONNECTER"> <br>
+       <input type="button" name="authBtn" id="authBtn" value="SE CONNECTER "> <br>
      </form>
   
     </div>
@@ -78,25 +80,25 @@
   }
 document.getElementById("authBtn").addEventListener('click',(e)=>{
     e.preventDefault();
-    console.log("in form handler")
     let password= document.getElementById('pass').value;
+/* const form = new FormData(document.getElementById('adminPass')); */
 
-
-
-
-    const form = new FormData(document.getElementById('adminPass'));
      fetch(`/login?pwd=${password}`,{
         method:"POST",
         headers: {
             'Content-Type': 'application/x-www-form-urlencoded'
         }
     }).then((resp)=>{
-
+      console.log(resp.status); 
         if(resp.ok){
 
           resp.json().then(data =>{console.log(data)});
 
-        }else{
+        }else if(resp.status==403){
+          console.log("Mot de Passe Incorrrect");
+        }
+        
+        else{
             const p=document.createElement('p');
             console.log(resp.text())
             p.innerText="Mauvaise probleme du reseau";
