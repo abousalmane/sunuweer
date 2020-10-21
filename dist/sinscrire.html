@@ -14,11 +14,17 @@
   }
   .tooltip{
     display: none;
+    font-size: smaller;
+
     color: rgb(175, 32, 7);
+  }
+  .showTooltip{
+    display: inline-block;
+    margin-bottom: 20px ;
   }
   form label {
     display: inline-block;
-    padding-bottom: 2rem;
+    margin: 1rem 0;
   }
   form input[type=submit]{
     width: 180px;
@@ -53,20 +59,20 @@
     <div>
      <form name="weerwi-sms" id="weerwiForm" action="/accuse.html" method="POST" data-netlify="true" onsubmit="return checkForm()">
        <label for="name">Votre Nom:</label><br>
-       <input type="text" name="name" id="name" minlength="2" maxlength="30" required><br>
-       <span class="tooltip">Un nom ne peut faire moins de deux caracteres</span><br>
+       <span class="tooltip">Un nom ne peut avoir moins de trois caracteres</span><br>
+       <input type="text" name="name" id="name" minlength="3" maxlength="30" required><br>
        <label for="tel">Votre numero de Telephone:</label><br>
-       <input type="tel" name="tel" id="tel" required placeholder="Ex:773455679" title="Saisir un numero telephone sans espace" minlength="9" maxlength="9" pattern="^7[0,6,7,8]{1}[0-9]{3}[0-9]{2}[0-9]{2}"> <br>
        <span class="tooltip">Le format du numero saisi est invalide</span><br>
-
+       <input type="tel" name="tel" id="tel" required placeholder="Ex:773455679" title="Saisir un numero telephone sans espace" minlength="9" maxlength="9" pattern="^7[0,6,7,8]{1}[0-9]{3}[0-9]{2}[0-9]{2}"> <br>
        <label for="choises">Je veux recevoir un SMS a chaque: </label> <br>
+       <span class="tooltip">Vous devez cochez une case au moins</span><br>
        <input type="checkbox" id="newMoon" name="newMoon" value="nouvelleLune">
        <label for="newMoon"> Debut d'un nouveau mois lunaire </label><br>
        <input type="checkbox" id="WhiteDays" name="WhiteDays" value="joursBlancs">
        <label for="WhiteDays">Veille des jours blancs </label><br>
        <input type="checkbox" id="celebration" name="celebration" value="celebration">
        <label for="celebration">Veille des jours de celebration (Aid, Arafat, Achoura)</label><br> 
-       <span class="tooltip">Vous devez cochez une case au moins</span><br>
+    
 
        <input type="submit" name="submitBtn" id="submitBtn" value="M'INSCRIRE"> <br>
      </form>
@@ -90,29 +96,31 @@
   }
   // Checking the subscriber form
   function checkForm(){
+    let validity=true;
     //checking name
     const name=document.getElementById("name");
-    if(name.value.length<=2){
-       document.querySelector(".tooltip").style.dispay="inline-block"; 
-       console.log("name f");
-       return false;
+    if(name.value.length<3){
+       document.querySelector(".tooltip").classList.add('showTooltip'); 
+       validity= false;
     }
           
     //checking mobile phone number
     const tel= document.getElementById("tel");
-      if(! /^7[0,6,7,8]{1}[0-9]{3}[0-9]{2}[0-9]{2}/.test(tel.value)){
-        tel.nextSibling.style.dispay='inline-block' ; return false;
+      if(! new RegExp(/^7[0,6,7,8]{1}[0-9]{3}[0-9]{2}[0-9]{2}/).test(tel.value)){
+        console.log("bad tel");
+        document.querySelectorAll(".tooltip")[1].classList.add('showTooltip'); validity= false;
       }
    // checking at least one checkbox is choosed   
 
     const checkboxes = document.querySelectorAll('input[type=checkbox]');
-    const checkboxeLength = checkboxes.length;
-      for(let i = 0; i< checkboxeLength;i++){
-        if(checkboxes[i].checked)
-                return true;  // return true because all above rules are satisfied
+    const checkboxeLength = checkboxes.length; let i ;
+      for(i=0;i<checkboxeLength;i++ ){
+        if(checkboxes[i].checked) 
+              break;
       }
-      document.querySelectorAll(".tooltip")[2].style.dispay="inline-block";
-      return false;
+      if(i===checkboxeLength) validity=false;
+      document.querySelectorAll(".tooltip")[2].classList.add('showTooltip');
+      return validity;
   }
 /*   document.getElementById("weerwiForm").addEventListener('submit', function(e){
    

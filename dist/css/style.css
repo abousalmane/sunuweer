@@ -145,7 +145,7 @@ footer{
   #particles-js{
     width: 100%;
     background-color:  #2a2a72;
-    background-image: linear-gradient(215deg, #2a2a72 0%, #009ffd 74%);;
+    background-image: /* linear-gradient(215deg, #2a2a72 0%, #009ffd 74%) */linear-gradient(black, #000099, #66c2ff, #ffcccc, #ffeee6);
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;

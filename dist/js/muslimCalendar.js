@@ -5,11 +5,11 @@ const moisHeg=["Mouharram",	"Safar", "Rabii al awal", "Rabii ath-thani", "Joumad
 const  hegYear=1442;
 
 var monthNum=1;  
-let firstDay= new Date('2020-09-17T19:05:00'); /* the first day of the current muslim month
+let firstDay= new Date('2020-10-17T19:05:00'); /* the first day of the current muslim month
                                    setting times to 19h 05Min will permit to make the day switch after the twilight */
 
 let firstDayIndex = firstDay.getDay()%6 +1;
-let prevLastDay = 29;
+let prevLastDay = 30;
 let lastDay = prevLastDay === 29 ? 30 :29;
 
 // let lastDayInGreg=  firstDay.addDays(lastDay-1)
