@@ -4,17 +4,24 @@ const moisHeg=["Mouharram",	"Safar", "Rabii al awal", "Rabii ath-thani", "Joumad
             "Joumada ath-thania",	"Rajab", "Chaabane", "Ramadan", "Chawwal", "Dhou al qi`da", "Dhou al-hijja"];
 const  hegYear=1442;
 
-var monthNum=1;  
-let firstDay= new Date('2020-10-17T19:05:00'); /* the first day of the current muslim month
+var monthNum=2;  
+let firstDay= new Date('2020-10-17T19:00:00'); /* the first day of the current muslim month
                                    setting times to 19h 05Min will permit to make the day switch after the twilight */
 
-let firstDayIndex = firstDay.getDay()%6 +1;
 let prevLastDay = 30;
 let lastDay = prevLastDay === 29 ? 30 :29;
 
 // let lastDayInGreg=  firstDay.addDays(lastDay-1)
-
 let currentDay= datediff(firstDay, new Date());
+if(currentDay>lastDay){
+  firstDay.setDate(firstDay.getDate()+lastDay);
+  currentDay= datediff(firstDay, new Date());
+  prevLastDay=lastDay; lastDay = lastDay === 29 ? 30 :29;
+  monthNum++;
+}
+
+let firstDayIndex = firstDay.getDay()%6 +1;
+
 function datediff(first, second){
     return Math.ceil((second - first)/(1000*60*60*24));
 }

@@ -101,10 +101,9 @@ footer{
     bottom: 0px; left: 0;
     z-index: 1;
     overflow: hidden;
-   /*  background-color: #2a2a72 
-    background-image: url(img/moonphases1.jpg);  */
+   /*  background-image: url(img/moonphases1.jpg);  */
  background: rgb(220,26,26); 
- background: linear-gradient(189deg, rgba(220,26,26,1) 5%, rgba(228,44,31,1) 11%, rgba(234,56,35,1) 15%, rgba(253,97,47,1) 29%, rgba(253,115,52,1) 60%, rgba(237,123,70,1) 83%); 
+ background-image: linear-gradient(#000099,  #66c2ff,  #ffcccc, #ffeee6); 
    background-position: 50% 90%;
 }
 /*Handle when click to to hamberger icon*/
@@ -145,7 +144,7 @@ footer{
   #particles-js{
     width: 100%;
     background-color:  #2a2a72;
-    background-image: /* linear-gradient(215deg, #2a2a72 0%, #009ffd 74%) */linear-gradient(black, #000099, #66c2ff, #ffcccc, #ffeee6);
+    background-image: /* linear-gradient(215deg, #2a2a72 0%, #009ffd 74%) */linear-gradient(black, #000099, #66c2ff/* , #ffcccc, #ffeee6 */);
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
