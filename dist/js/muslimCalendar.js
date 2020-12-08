@@ -5,7 +5,7 @@ const moisHeg=["Mouharram",	"Safar", "Rabii al awal", "Rabii ath-thani", "Joumad
 const  hegYear=1442;
 
 var monthNum=2;  
-let firstDay= new Date('2020-10-17T19:00:00'); /* the first day of the current muslim month
+let firstDay= new Date('2020-11-16T18:50:00'); /* the first day of the current muslim month
                                    setting times to 19h 05Min will permit to make the day switch after the twilight */
 
 let prevLastDay = 30;

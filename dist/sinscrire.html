@@ -9,8 +9,9 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <style>
   form{
-    font-size: large;
     padding: 5rem;
+    color: #fff; font-size: 2.5rem;
+
   }
   .tooltip{
     display: none;
@@ -26,11 +27,16 @@
     display: inline-block;
     margin: 1rem 0;
   }
+  form input[type=text], input[type=tel]{
+    margin-bottom: 1rem;
+    line-height: 4rem;
+    font-weight: 400;
+  }
   form input[type=submit]{
-    width: 180px;
+    width: 480px;
     display: block;
     padding: 15px 22px;
-    font-size: large;
+    font-size: large; font-weight: bold;
     background: transparent;
     cursor: pointer;
    box-shadow: 5px 10px rgba(0, 0, 0, 0.19);
@@ -68,7 +74,7 @@
        <span class="tooltip">Vous devez cochez une case au moins</span><br>
        <input type="checkbox" id="newMoon" name="newMoon" value="nouvelleLune">
        <label for="newMoon"> Debut d'un nouveau mois lunaire </label><br>
-       <input type="checkbox" id="WhiteDays" name="WhiteDays" value="joursBlancs">
+       <input type="checkbox" id="WhiteDays" name="whiteDays" value="joursBlancs">
        <label for="WhiteDays">Veille des jours blancs </label><br>
        <input type="checkbox" id="celebration" name="celebration" value="celebration">
        <label for="celebration">Veille des jours de celebration (Aid, Arafat, Achoura)</label><br> 
@@ -112,14 +118,10 @@
       }
    // checking at least one checkbox is choosed   
 
-    const checkboxes = document.querySelectorAll('input[type=checkbox]');
-    const checkboxeLength = checkboxes.length; let i ;
-      for(i=0;i<checkboxeLength;i++ ){
-        if(checkboxes[i].checked) 
-              break;
-      }
-      if(i===checkboxeLength) validity=false;
-      document.querySelectorAll(".tooltip")[2].classList.add('showTooltip');
+    const checkboxesLen= document.querySelectorAll('input[type=checkbox]:checked').length;
+    console.log(checkboxesLen);
+    if(checkboxesLen<1) {validity=false;
+    document.querySelectorAll(".tooltip")[2].classList.add('showTooltip');}
       return validity;
   }
 /*   document.getElementById("weerwiForm").addEventListener('submit', function(e){
@@ -142,7 +144,6 @@
 
   </script>
   <!--http://api.aladhan.com/v1/gToH?date=31-08-2020-->
-  <script src="js/script.js" type="text/javascript"></script>
       
   <script src="/js/particles.min.js"></script>
   <script src="/js/app.js"></script>

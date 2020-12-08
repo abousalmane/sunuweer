@@ -152,10 +152,12 @@ footer{
   }
   article {
     padding: 5px;
-    max-width: 90%;
+    max-width: 95%;
+    width: 900px;
   }
   article p {
     text-align: justify;
+    word-wrap: break-word;
   }
   
   @media screen and (max-width: 600px) {

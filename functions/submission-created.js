@@ -11,8 +11,16 @@ exports.handler = function(event, context, callback){
     console.log(payload);
     let name = payload.data.name;
     let tel=payload.data.tel;
+    let choise=[];
+    if(payload.data.newMoon)
+            choise.push(payload.data.newMoon);
+    if(payload.data.whiteDays)
+            choise.push(payload.data.whiteDays);
+    if(payload.data.celebration)
+            choise.push(payload.data.celebration);
+    console.log(choise);
     callback(null,{
         statusCode:200,
-        body:JSON.stringify({"name":name, "tel":tel})
+        body:JSON.stringify({"name":name, "tel":tel,"choise":choise})
     });
 }
