@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>sunuweer inscription SMS</title>
-  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="./css/style.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <style>
   form{
@@ -32,7 +32,7 @@
     font-weight: 400;
   }
   form input[type=submit]{
-    width: 480px;
+    width: 280px;
     max-width: 90%;
     display: block;
     padding: 15px 22px;
@@ -52,7 +52,7 @@
   <nav class="navbar fixed">
     <div class="topnav" id="myTopnav">
     <a href="index.html" >Calendrier</a>
-    <a href="#news">Rechercher une Date</a>
+    <a href="conversion.html">Rechercher une Date</a>
     <a href="sinscrire.html" class="active">Soyez Informe</a>
     <a href="javascript:void(0);" class="icon" onclick="hamburger()">
       <i class="fa fa-bars"></i>
@@ -63,7 +63,7 @@
   <main>
     <h1>Inscription pour recevoir l'information par SMS </h1>
     <div>
-     <form name="weerwi-sms" id="weerwiForm" action="/accuse.html" method="POST" data-netlify="true" onsubmit="return checkForm()">
+     <form name="weerwi-sms" id="weerwiForm" action="http://localhost:3000/subscribe" method="POST" data-netlify="true" onsubmit="return checkForm()">
        <label for="name">Votre Nom:</label><br>
        <span class="tooltip">Un nom ne peut avoir moins de trois caracteres</span><br>
        <input type="text" name="name" id="name" minlength="3" maxlength="30" required><br>
@@ -145,8 +145,8 @@
   </script>
   <!--http://api.aladhan.com/v1/gToH?date=31-08-2020-->
       
-  <script src="/js/particles.min.js"></script>
-  <script src="/js/app.js"></script>
+  <script src="./js/particles.min.js"></script>
+  <script src="./js/app.js"></script>
 </body>
 
 </html>

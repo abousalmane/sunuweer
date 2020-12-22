@@ -69,7 +69,7 @@ main >div{
   flex-direction: column;
   position: absolute;
   z-index: 4;
-  justify-content:right ;
+  justify-content:center ;
   align-items: center;
   flex-wrap: wrap;
   width: 100%;
@@ -177,7 +177,10 @@ footer{
       max-width: 100%;;
     }
   }
-  
+  noscript{
+    color: rgb(175, 32, 7);
+    font-size: xx-large;
+  }
   @media screen and (max-width: 600px) {
     .topnav.responsive {position: relative;}
     .topnav.responsive .icon {
